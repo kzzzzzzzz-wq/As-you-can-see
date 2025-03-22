@@ -1,0 +1,93 @@
+<!-- 定义文档类型为 HTML5 -->
+<!DOCTYPE html>
+<!-- 设置 HTML 文档的语言为中文 -->
+<html lang="zh">
+<head>
+  <!-- 设置文档的字符编码为 UTF-8 -->
+  <meta charset="UTF-8">
+  <!-- 设置文档的标题 -->
+  <title>加法计算器</title>
+  <!-- 内联样式 -->
+  <style>
+    /* 设置页面的字体和边距 */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    /* 设置标题的颜色 */
+    h1 {
+      color: #333;
+    }
+    /* 设置表单的最大宽度和居中对齐 */
+    form {
+      max-width: 300px;
+      margin: auto;
+    }
+    /* 设置标签和输入框的显示方式和上边距 */
+    label, input {
+      display: block;
+      margin-top: 10px;
+    }
+    /* 设置数字输入框的宽度、内边距和上边距 */
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+    /* 设置按钮的样式 */
+    input[type="button"] {
+      width: auto;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    /* 设置按钮在悬停时的背景颜色 */
+    input[type="button"]:hover {
+      background-color: #45a049;
+    }
+    /* 设置结果显示区域的样式 */
+    #result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #333;
+    }
+  </style>
+  <!-- 内联脚本 -->
+  <script>
+    // 定义计算和的函数
+    function calculateSum() {
+      // 获取输入的两个数字
+      let num1 = parseFloat(document.getElementById('num1').value);
+      let num2 = parseFloat(document.getElementById('num2').value);
+
+      // 计算和
+      let sum = num1 + num2;
+
+      // 显示结果
+      document.getElementById('result').innerText = '结果：' + sum;
+    }
+  </script>
+</head>
+<body>
+  <!-- 页面标题 -->
+  <h1>加法计算器</h1>
+  <!-- 表单 -->
+  <form>
+    <!-- 第一个数字输入框 -->
+    <label for="num1">数字1：</label>
+    <input type="number" id="num1" name="num1" required>
+
+    <!-- 第二个数字输入框 -->
+    <label for="num2">数字2：</label>
+    <input type="number" id="num2" name="num2" required>
+
+    <!-- 计算按钮 -->
+    <input type="button" value="计算" onclick="calculateSum()">
+  </form>
+  <!-- 显示结果的元素 -->
+  <p id="result"></p>
+</body>
+</html>

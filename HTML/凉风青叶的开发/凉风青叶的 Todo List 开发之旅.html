@@ -1,0 +1,33 @@
+<!-- 定义文档类型为 HTML5 -->
+<!DOCTYPE html>
+<!-- 设置 HTML 文档的语言为中文（简体） -->
+<html lang="zh-CN">
+<head>
+  <!-- 设置文档的字符编码为 UTF-8 -->
+  <meta charset="UTF-8">
+  <!-- 设置文档的标题 -->
+  <title>青叶的 Todo List</title>
+  <!-- 引入外部样式表 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 包含待办事项列表的卡片容器 -->
+  <div class="card">
+    <!-- 页面标题 -->
+    <h1>我的待办事项</h1>
+    <!-- 待办事项列表，任务项将动态生成 -->
+    <ul id="todo-list">
+      <!-- 动态生成的任务项 -->
+    </ul>
+    <!-- 输入新任务的输入组 -->
+    <div class="input-group">
+      <!-- 新任务输入框 -->
+      <input type="text" id="task-input" placeholder="请输入新任务">
+      <!-- 添加任务按钮 -->
+      <button id="add-button" class="button">添加</button>
+    </div>
+  </div>
+  <!-- 引入外部 JavaScript 文件 -->
+  <script src="script.js"></script>
+</body>
+</html>

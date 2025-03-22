@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>调查问卷</title>
+  <style>
+    /* 设置页面的字体和边距 */
+    body {
+      font-family: Arial, sans-serif; /* 设置字体 */
+      margin: 20px; /* 设置页面边距 */
+      background-image: url('background.jpg'); /* 添加背景图像 */
+      background-size: cover; /* 使背景图像覆盖整个页面 */
+      background-position: center; /* 使背景图像居中 */
+      background-repeat: no-repeat; /* 防止背景图像重复 */
+    }
+    /* 设置标题的颜色 */
+    h1 {
+      color: #333; /* 设置标题颜色 */
+    }
+    /* 设置表单的最大宽度和居中对齐 */
+    form {
+      max-width: 600px; /* 设置表单最大宽度 */
+      margin: auto; /* 使表单居中 */
+      background-color: rgba(255, 255, 255, 0.8); /* 设置表单背景为半透明白色 */
+      padding: 50px; /* 设置表单内边距 */
+      border-radius: 10px; /* 设置表单圆角 */
+    }
+    /* 设置标签的显示方式和上边距 */
+    label {
+      display: block; /* 设置标签为块级元素 */
+      margin-top: 10px; /* 设置标签上边距 */
+    }
+    /* 设置输入框、选择框和文本区域的宽度、内边距和上边距 */
+    input, select, textarea {
+      width: 100%; /* 设置宽度 */
+      padding: 8px; /* 设置内边距 */
+      margin-top: 5px; /* 设置上边距 */
+    }
+    /* 设置提交按钮的样式 */
+    input[type="submit"] {
+      width: auto; /* 设置宽度为自动 */
+      background-color: #4CAF50; /* 设置背景颜色 */
+      color: white; /* 设置文本颜色 */
+      border: none; /* 去除边框 */
+      padding: 10px 20px; /* 设置内边距 */
+      cursor: pointer; /* 设置鼠标指针样式 */
+    }
+    /* 设置提交按钮在悬停时的背景颜色 */
+    input[type="submit"]:hover {
+      background-color: #45a049; /* 设置悬停时的背景颜色 */
+    }
+  </style>
+  <script>
+    let people = []; // 初始化一个存储人类对象的数组
+
+    function handleSubmit(event) {
+      event.preventDefault(); // 阻止表单默认提交行为
+
+      let gender = document.getElementById('gender').value; // 获取性别
+      let age = parseInt(document.getElementById('age').value); // 获取年龄并转换为整数
+
+      // 创建一个人类对象
+      let person = {
+        gender: gender,
+        age: age,
+        greet: function() {
+          let greeting = '';
+          if (this.gender === 'male') {
+            greeting = (this.age >= 20) ? '小伙子，谢谢你的提交！' : '小兄弟，谢谢你的提交！';
+          } else if (this.gender === 'female') {
+            greeting = (this.age >= 20) ? '女士，谢谢你的提交！' : '小姑娘，谢谢你的提交！';
+          } else {
+            greeting = '谢谢你的提交！';
+          }
+          return greeting;
+        }
+      };
+
+      // 将人类对象存入数组
+      people.push(person);
+
+      // 显示当前人类的问候信息
+      document.getElementById('greetingMessage').innerText = person.greet();
+
+      // 输出当前提交的人类信息
+      console.log(people);
+
+      // 弹出感谢信息
+      alert('感谢您的提交！');
+    }
+  </script>
+</head>
+<body>
+  <h1>调查问卷</h1>
+  <form onsubmit="handleSubmit(event)">
+    <!-- 姓名输入框 -->
+    <label for="name">姓名：</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <!-- 年龄输入框 -->
+    <label for="age">年龄：</label>
+    <input type="number" id="age" name="age" required><br><br>
+
+    <!-- 性别选择框 -->
+    <label for="gender">性别：</label>
+    <select id="gender" name="gender" required>
+      <option value="male">男</option>
+      <option value="female">女</option>
+      <option value="other">其他</option>
+    </select><br><br>
+
+    <!-- 电子邮件输入框 -->
+    <label for="email">电子邮件：</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <!-- 反馈意见文本区域 -->
+    <label for="feedback">反馈意见：</label>
+    <textarea id="feedback" name="feedback" rows="4" required></textarea><br><br>
+
+    <!-- 提交按钮 -->
+    <input type="submit" value="提交">
+  </form>
+  <!-- 显示问候信息的元素 -->
+  <p id="greetingMessage"></p>
+</body>
+</html>

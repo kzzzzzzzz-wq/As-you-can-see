@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>调查问卷</title>
+  <style>
+    /* 基础的样式设置 */
+    body {
+      font-family: Arial, sans-serif; /* 设置字体 */
+      margin: 100px; /* 设置页面边距 */
+      background-image: url('background.jpg'); /* 添加背景图像 */
+      background-size: cover; /* 使背景图像覆盖整个页面 */
+      background-position: center; /* 使背景图像居中 */
+      background-repeat: no-repeat; /* 防止背景图像重复 */
+    }
+    form {
+      margin: auto; /* 使表单居中 */
+      max-width: 600px; /* 设置表单最大宽度 */
+      padding: 50px; /* 设置表单内边距 */
+      background-color: rgba(255, 255, 255, 0.8); /* 设置表单背景为半透明白色 */
+      border-radius: 10px; /* 设置表单圆角 */
+    }
+    label {
+      display: block; /* 设置标签为块级元素 */
+      margin-top: 10px; /* 设置标签上边距 */
+      border-radius: 10px;
+    }
+    input[type="text"], input[type="number"] {
+      width: 100%; /* 设置宽度 */
+      padding: 5px; /* 设置内边距 */
+      margin-top: 5px; /* 设置上边距 */
+    }
+    /* 设置单选按钮和复选框的样式 */
+    .inline {
+      display: flex; /* 使用 flex 布局 */
+      align-items: center; /* 垂直居中对齐 */
+      margin-top: 5px; /* 设置上边距 */
+    }
+    .inline input {
+      margin-right: 5px; /* 设置右边距 */
+    }
+    button {
+      margin-top: 20px; /* 设置上边距 */
+      padding: 10px; /* 设置内边距 */
+      background-color: #4CAF50; /* 设置背景颜色 */
+      color: white; /* 设置文本颜色 */
+      border: none; /* 去除边框 */
+      cursor: pointer; /* 设置鼠标指针样式 */
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <h1>调查问卷</h1>
+
+    <!-- 姓名输入框 -->
+    <label for="name">姓名：</label>
+    <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
+
+    <!-- 年龄输入框 -->
+    <label for="age">年龄：</label>
+    <input type="number" id="age" name="age" placeholder="请输入您的年龄" required>
+
+    <!-- 性别选择（单选按钮） -->
+    <label>性别：</label>
+    <div class="inline">
+      <input type="radio" id="male" name="gender" value="male">
+      <label for="male">男</label>
+    </div>
+    <div class="inline">
+      <input type="radio" id="female" name="gender" value="female">
+      <label for="female">女</label>
+    </div>
+
+    <!-- 兴趣选择（复选框） -->
+    <label>兴趣爱好：</label>
+    <div class="inline">
+      <input type="checkbox" id="sports" name="hobby" value="sports">
+      <label for="sports">运动</label>
+    </div>
+    <div class="inline">
+      <input type="checkbox" id="reading" name="hobby" value="reading">
+      <label for="reading">阅读</label>
+    </div>
+
+    <!-- 提交按钮 -->
+    <button type="submit" id="submit">提交</button>
+
+    <p> 希望各位如实填写，谢谢大家的参与！</p>
+  </form>
+
+  <script>
+    const button = document.getElementById("submit");  // 选择按钮
+    button.addEventListener("click", function(event) { // 添加点击事件监听
+      event.preventDefault(); // 阻止表单默认提交行为
+      alert("谢谢填写！");
+    });
+  </script>
+</body>
+</html>
